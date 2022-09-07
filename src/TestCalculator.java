@@ -32,4 +32,10 @@ public class TestCalculator
 	{
 		Assert.assertEquals(calculator.add("1,2"), 3);
 	}
+	
+	@Test
+	public void moreValueCommonDelimiterSum()
+	{
+		Assert.assertEquals(calculator.add("1,2,3,4"), 10);
+	}
 }

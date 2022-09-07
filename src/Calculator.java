@@ -15,14 +15,19 @@ public class Calculator
 		}
 		else
 		{
-			return getSum(numbers[0],numbers[1]);
+			return getSum(numbers);
 		}
 		
 	}
 	
-	private int getSum(String numA, String numB)
+	private int getSum(String[] numbers)
 	{
-		return Integer.parseInt(numA) + Integer.parseInt(numB);
+		int sum=0;
+		for(int i=0; i<numbers.length; i++)
+		{
+			sum += Integer.parseInt(numbers[i]);
+		}
+		return sum;
 	}
 	
 	private boolean isEmpty(String input)
