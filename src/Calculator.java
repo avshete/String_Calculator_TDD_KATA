@@ -3,7 +3,7 @@ public class Calculator
 {
 	public int add(String input)
 	{
-		String[] numbers = input.split(",");
+		String[] value = input.split(",");
 		
 		if(isEmpty(input))
 		{
@@ -15,17 +15,32 @@ public class Calculator
 		}
 		else
 		{
-			return getSum(numbers);
+			return getSum(value);
 		}
 		
 	}
 	
-	private int getSum(String[] numbers)
+	private int getSum(String[] value)
 	{
 		int sum=0;
-		for(int i=0; i<numbers.length; i++)
+		for(String i:value)
 		{
-			sum += Integer.parseInt(numbers[i]);
+			String str = i;
+			char c=str.charAt(0);
+			if(!Character.isDigit(c))
+			{
+				int temp = (int)c;
+			    int temp_integer = 96; //for lower case
+			    if(temp<=122 & temp>=97)
+			    {
+			        int add=temp-temp_integer;
+			        sum+=add;
+			    }
+			}
+			else
+			{
+				sum += Integer.parseInt(i);
+			}
 		}
 		return sum;
 	}

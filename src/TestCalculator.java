@@ -38,4 +38,10 @@ public class TestCalculator
 	{
 		Assert.assertEquals(calculator.add("1,2,3,4"), 10);
 	}
+	
+	@Test
+	public void ValueAlphabetsSum()
+	{
+		Assert.assertEquals(calculator.add("1,2,a,c"), 7);
+	}
 }
