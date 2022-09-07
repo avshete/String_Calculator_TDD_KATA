@@ -22,9 +22,14 @@ public class TestCalculator
 	}
 	
 	@Test
-	public void singleValue()
+	public void singleValueSum()
 	{
 		Assert.assertEquals(calculator.add("1"), 1);
 	}
 
+	@Test
+	public void twoValueCommonDelimiterSum()
+	{
+		Assert.assertEquals(calculator.add("1,2"), 3);
+	}
 }
