@@ -29,13 +29,9 @@ public class Calculator
 			char c=str.charAt(0);
 			if(!Character.isDigit(c))
 			{
-				int temp = (int)c;
-			    int temp_integer = 96; //for lower case
-			    if(temp<=122 & temp>=97)
-			    {
-			        int add=temp-temp_integer;
-			        sum+=add;
-			    }
+				int add=valueOf(c);
+
+			    sum+=add;
 			}
 			else
 			{
@@ -53,6 +49,15 @@ public class Calculator
 	private int stringToInt(String input)
 	{
 		return Integer.parseInt(input);
+	}
+	
+	private int valueOf(char c)
+	{
+		int temp = (int)c;
+	    int temp_integer = 96; //for lower case
+	    return temp-temp_integer;
+	    
+		
 	}
 
 }
