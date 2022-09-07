@@ -1,7 +1,7 @@
 
 public class Calculator 
 {
-	public int add(String input)
+	public int add(String input) throws Exception
 	{
 		String[] value = input.split(",");
 		
@@ -20,8 +20,10 @@ public class Calculator
 		
 	}
 	
-	private int getSum(String[] value)
+	private int getSum(String[] value) throws Exception 
 	{
+		hasNegativeValue(value);
+		
 		int sum=0;
 		for(String i:value)
 		{
@@ -35,7 +37,10 @@ public class Calculator
 			}
 			else
 			{
-				sum += Integer.parseInt(i);
+				if(Integer.parseInt(i)<=1000)
+				{
+					sum += Integer.parseInt(i);
+				}
 			}
 		}
 		return sum;
@@ -56,8 +61,22 @@ public class Calculator
 		int temp = (int)c;
 	    int temp_integer = 96; //for lower case
 	    return temp-temp_integer;
-	    
+	    	
+	}
+	
+    private void hasNegativeValue(String[] value) throws Exception
+	{
+
+		for(String i:value)
+		{
+			String str = i;
+			char c=str.charAt(0);
+			if(Character.isDigit(c) && stringToInt(i)<0)
+			{
+				throw new Exception("Negative Integer");
+			}
 		
+		}
 	}
 
 }
