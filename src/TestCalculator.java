@@ -1,12 +1,30 @@
 import static org.junit.Assert.*;
 
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
-public class TestCalculator {
+
+public class TestCalculator 
+{
+	private Calculator calculator;
+	
+	@Before
+	public void init()
+	{
+		calculator = new Calculator();
+	}
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void  emptyString()
+	{
+		Assert.assertEquals(calculator.add(""), 0);
+	}
+	
+	@Test
+	public void singleValue()
+	{
+		Assert.assertEquals(calculator.add("1"), 1);
 	}
 
 }
